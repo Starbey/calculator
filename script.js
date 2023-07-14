@@ -1,3 +1,5 @@
+let numOne,operator,numTwo;
+
 function add(numOne,numTwo){
     return numOne+numTwo;
 }
