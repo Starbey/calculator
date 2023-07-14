@@ -75,7 +75,7 @@ btnAC.addEventListener("click",()=>{
     op="no op";
     newNum="";
     history.textContent="";
-    current.textContent="";
+    current.textContent="0";
 })
 
 //delete
@@ -91,13 +91,18 @@ btnChangeSign.addEventListener("click",()=>{
 //numbers
 numButtons.forEach(numButton=>{
     numButton.addEventListener("click",()=>{
-        current.textContent+=`${numButtons.indexOf(numButton)}`;
+        if (current.textContent==="0"){
+            current.textContent=`${numButtons.indexOf(numButton)}`;
+        }
+        else{   
+            current.textContent+=`${numButtons.indexOf(numButton)}`;
+        }
     })
 })
 
 //decimal
 btnDecimal.addEventListener("click",()=>{
-    if (current.textContent!==""){
+    if (current.textContent!==""&&current.textContent.includes(".")===false){
         current.textContent+=".";
     }
 })
