@@ -21,9 +21,9 @@ for (let i=0;i<=9;i++){
 
 //variables
 let input=""
-let numOne="";
+let numOne;
 let op;
-let numTwo="";
+let numTwo;
 
 //operation functions
 function add(numOne,numTwo){
@@ -63,9 +63,16 @@ function operate(numOne,operator,numTwo) {
 }
 
 //event listeners
+//clear
+btnAC.addEventListener("click",()=>{
+    input="";
+    current.textContent=input;
+})
+
+//numbers
 numButtons.forEach(numButton=>{
     numButton.addEventListener("click",()=>{
-        inputOne+=`${numButtons.indexOf(numButton)}`;
-        current.textContent=inputOne;
+        input+=`${numButtons.indexOf(numButton)}`;
+        current.textContent=input;
     })
 })
