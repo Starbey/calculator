@@ -76,6 +76,11 @@ btnAC.addEventListener("click",()=>{
     current.textContent="";
 })
 
+//delete
+btnDel.addEventListener("click",()=>{
+    current.textContent=current.textContent.slice(0,-1);//removes last character from string
+})
+
 //numbers
 numButtons.forEach(numButton=>{
     numButton.addEventListener("click",()=>{
