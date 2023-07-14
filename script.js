@@ -72,8 +72,9 @@ function operate(numOne,operator,numTwo) {
 btnAC.addEventListener("click",()=>{
     input="";
     oldNum="";
+    op="no op";
     newNum="";
-
+    history.textContent="";
     current.textContent=input;
 })
 
@@ -89,6 +90,18 @@ numButtons.forEach(numButton=>{
 })
 
 //operators
+function operaterHelper(opSymbol){
+    if (input!==""){//only works if user inputted something
+        newNum=parseInt(input);
+        input="";
+        oldNum=operate(oldNum,op,newNum);
+        console.log(oldNum);//delete later
+        current.textContent=input;
+        history.textContent=`${oldNum} ${opSymbol}`;//updates history
+        op="add";
+    }
+}
+
 btnAdd.addEventListener("click",()=>{
     if (input!==""){//only works if user inputted something
         newNum=parseInt(input);
@@ -110,5 +123,29 @@ btnMultiply.addEventListener("click",()=>{
         current.textContent=input;
         history.textContent=`${oldNum} x`;//updates history
         op="multiply";
+    }
+})
+
+btnDivide.addEventListener("click",()=>{
+    if (input!==""){//only works if user inputted something
+        newNum=parseInt(input);
+        input="";
+        oldNum=operate(oldNum,op,newNum);
+        console.log(oldNum);//delete later
+        current.textContent=input;
+        history.textContent=`${oldNum} ÷`;//updates history
+        op="divide";
+    }
+})
+
+btnSubtract.addEventListener("click",()=>{
+    if (input!==""){//only works if user inputted something
+        newNum=parseInt(input);
+        input="";
+        oldNum=operate(oldNum,op,newNum);
+        console.log(oldNum);//delete later
+        current.textContent=input;
+        history.textContent=`${oldNum} -`;//updates history
+        op="subtract";
     }
 })
