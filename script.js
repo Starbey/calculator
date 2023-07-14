@@ -81,9 +81,6 @@ btnAC.addEventListener("click",()=>{
 //numbers
 numButtons.forEach(numButton=>{
     numButton.addEventListener("click",()=>{
-        // input+=`${numButtons.indexOf(numButton)}`;
-        // current.textContent=input;
-
         current.textContent+=`${numButtons.indexOf(numButton)}`;
         input=current.textContent;
     })
@@ -99,7 +96,7 @@ function operatorHelper(opSymbol,opType){
         console.log(oldNum);//delete later
         current.textContent=input;
         history.textContent=`${oldNum} ${opSymbol}`;//updates history
-        op="add";
+        op=opType;
     }
 }
 
@@ -115,10 +112,18 @@ btnMultiply.addEventListener("click",()=>{
 
 //divide
 btnDivide.addEventListener("click",()=>{
-    operatorHelper("+","divide");
+    operatorHelper("/","divide");
 })
 
 //subtract
 btnSubtract.addEventListener("click",()=>{
-    operatorHelper("+","subtract");
+    operatorHelper("-","subtract");
+})
+
+//equals
+btnEquals.addEventListener("click",()=>{
+    newNum=current.textContent;
+    current.textContent=operate(oldNum,op,newNum);
+    input=current.textContent;
+    op="no op";
 })
