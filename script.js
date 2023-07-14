@@ -6,7 +6,7 @@ const current=document.querySelector(".current");
 const btnAC=document.getElementById("ac");
 const btnDel=document.getElementById("del");
 
-const btnPercent=document.getElementById("percent");
+const btnChangeSign=document.getElementById("change-sign");
 
 const btnAdd=document.getElementById("add");
 const btnMultiply=document.getElementById("multiply");
@@ -71,6 +71,9 @@ function operate(numOne,operator,numTwo) {
 //clear
 btnAC.addEventListener("click",()=>{
     input="";
+    oldNum="";
+    newNum="";
+
     current.textContent=input;
 })
 
@@ -87,14 +90,25 @@ numButtons.forEach(numButton=>{
 
 //operators
 btnAdd.addEventListener("click",()=>{
-    if (input!==""){
+    if (input!==""){//only works if user inputted something
         newNum=parseInt(input);
         input="";
         oldNum=operate(oldNum,op,newNum);
-        console.log(oldNum);
-        input="";
+        console.log(oldNum);//delete later
         current.textContent=input;
         history.textContent=`${oldNum} +`;//updates history
         op="add";
+    }
+})
+
+btnMultiply.addEventListener("click",()=>{
+    if (input!==""){//only works if user inputted something
+        newNum=parseInt(input);
+        input="";
+        oldNum=operate(oldNum,op,newNum);
+        console.log(oldNum);//delete later
+        current.textContent=input;
+        history.textContent=`${oldNum} x`;//updates history
+        op="multiply";
     }
 })
