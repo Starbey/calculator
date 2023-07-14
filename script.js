@@ -83,6 +83,11 @@ numButtons.forEach(numButton=>{
     })
 })
 
+//decimal
+btnDecimal.addEventListener("click",()=>{
+    current.textContent+=".";
+})
+
 //operators
 //helper function
 function operatorHelper(opSymbol,opType){
