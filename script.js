@@ -19,6 +19,12 @@ for (let i=0;i<=9;i++){
     numButtons[i]=document.getElementById(`${i}`);
 }
 
+//variables
+let input=""
+let numOne="";
+let op;
+let numTwo="";
+
 //operation functions
 function add(numOne,numTwo){
     return numOne+numTwo;
@@ -39,16 +45,16 @@ function divide(numOne,numTwo){
 //chooses an operation based on operator passed
 function operate(numOne,operator,numTwo) {
     switch(operator){
-        case "+":
+        case "add":
             return add(numOne,numTwo);
             break;
-        case "-":
+        case "subtract":
             return subtract(numOne,numTwo);
             break;
-        case "*":
+        case "multiply":
             return multiply(numOne,numTwo);
             break;
-        case "/":
+        case "divide":
             return divide(numOne,numTwo);
             break;
         default:
@@ -59,6 +65,7 @@ function operate(numOne,operator,numTwo) {
 //event listeners
 numButtons.forEach(numButton=>{
     numButton.addEventListener("click",()=>{
-        current.textContent+=`${numButtons.indexOf(numButton)}`;
+        inputOne+=`${numButtons.indexOf(numButton)}`;
+        current.textContent=inputOne;
     })
 })
