@@ -1,3 +1,7 @@
+//display
+const history=document.querySelector(".history");
+const current=document.querySelector(".current");
+
 //buttons
 const btnAC=document.getElementById("ac");
 const btnDel=document.getElementById("del");
@@ -10,22 +14,12 @@ const btnSubtract=document.getElementById("subtract");
 const btnEquals=document.getElementById("equals");
 const btnDecimal=document.getElementById("decimal");
 
-// const btnSeven=document.getElementById("7");
-// const btnEight=document.getElementById("8");
-// const btnNine=document.getElementById("9");
-// const btnFour=document.getElementById("4");
-// const btnFive=document.getElementById("5");
-// const btnSix=document.getElementById("6");
-// const btnOne=document.getElementById("1");
-// const btnTwo=document.getElementById("2");
-// const btnThree=document.getElementById("3");
-// const btnZero=document.getElementById("0");
-
 const numButtons =[];
-for (let i=0;i<9;i++){
+for (let i=0;i<=9;i++){
     numButtons[i]=document.getElementById(`${i}`);
 }
 
+//operation functions
 function add(numOne,numTwo){
     return numOne+numTwo;
 }
@@ -42,6 +36,7 @@ function divide(numOne,numTwo){
     return numOne/numTwo;
 }
 
+//chooses an operation based on operator passed
 function operate(numOne,operator,numTwo) {
     switch(operator){
         case "+":
@@ -61,5 +56,9 @@ function operate(numOne,operator,numTwo) {
     }
 }
 
-
-
+//event listeners
+numButtons.forEach(numButton=>{
+    numButton.addEventListener("click",()=>{
+        current.textContent+=`${numButtons.indexOf(numButton)}`;
+    })
+})
