@@ -21,7 +21,6 @@ for (let i=0;i<=9;i++){
 }
 
 //variables
-let input=""
 let oldNum="";
 let op="no op";
 let newNum;
@@ -70,31 +69,27 @@ function operate(numOne,operator,numTwo) {
 //event listeners
 //clear
 btnAC.addEventListener("click",()=>{
-    input="";
     oldNum="";
     op="no op";
     newNum="";
     history.textContent="";
-    current.textContent=input;
+    current.textContent="";
 })
 
 //numbers
 numButtons.forEach(numButton=>{
     numButton.addEventListener("click",()=>{
         current.textContent+=`${numButtons.indexOf(numButton)}`;
-        input=current.textContent;
     })
 })
 
 //operators
 //helper function
 function operatorHelper(opSymbol,opType){
-    if (input!==""){//only works if user inputted something
-        newNum=parseInt(input);
-        input="";
+    if (current.textContent!==""){//only works if user inputted something
+        newNum=Number(current.textContent);
         oldNum=operate(oldNum,op,newNum);
-        console.log(oldNum);//delete later
-        current.textContent=input;
+        current.textContent="";
         history.textContent=`${oldNum} ${opSymbol}`;//updates history
         op=opType;
     }
@@ -122,8 +117,7 @@ btnSubtract.addEventListener("click",()=>{
 
 //equals
 btnEquals.addEventListener("click",()=>{
-    newNum=current.textContent;
+    newNum=Number(current.textContent);
     current.textContent=operate(oldNum,op,newNum);
-    input=current.textContent;
     op="no op";
 })
