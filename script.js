@@ -95,7 +95,9 @@ numButtons.forEach(numButton=>{
 
 //decimal
 btnDecimal.addEventListener("click",()=>{
-    current.textContent+=".";
+    if (current.textContent!==""){
+        current.textContent+=".";
+    }
 })
 
 //operators
