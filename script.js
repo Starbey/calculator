@@ -22,9 +22,9 @@ for (let i=0;i<=9;i++){
 
 //variables
 let input=""
-let numOne;
-let op;
-let numTwo;
+let oldNum="";
+let op="no op";
+let newNum;
 
 //operation functions
 function add(numOne,numTwo){
@@ -58,6 +58,10 @@ function operate(numOne,operator,numTwo) {
         case "divide":
             return divide(numOne,numTwo);
             break;
+        case "no op"://If no operator was selected (i.e. only 1 number
+                //was inputted), store the new num in the old num var.
+            return numTwo;
+            break;
         default:
             console.log("Invalid operator");
     }
@@ -73,14 +77,24 @@ btnAC.addEventListener("click",()=>{
 //numbers
 numButtons.forEach(numButton=>{
     numButton.addEventListener("click",()=>{
-        input+=`${numButtons.indexOf(numButton)}`;
-        current.textContent=input;
+        // input+=`${numButtons.indexOf(numButton)}`;
+        // current.textContent=input;
+
+        current.textContent+=`${numButtons.indexOf(numButton)}`;
+        input=current.textContent;
     })
 })
 
 //operators
 btnAdd.addEventListener("click",()=>{
-    input="";
-    current.textContent=input;
-    op="add";
+    if (input!==""){
+        newNum=parseInt(input);
+        input="";
+        oldNum=operate(oldNum,op,newNum);
+        console.log(oldNum);
+        input="";
+        current.textContent=input;
+        history.textContent=`${oldNum} +`;//updates history
+        op="add";
+    }
 })
