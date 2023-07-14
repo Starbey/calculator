@@ -32,3 +32,4 @@ function operate(numOne,operator,numTwo) {
             console.log("Invalid operator");
     }
 }
+
