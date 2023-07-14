@@ -81,6 +81,11 @@ btnDel.addEventListener("click",()=>{
     current.textContent=current.textContent.slice(0,-1);//removes last character from string
 })
 
+//change sign
+btnChangeSign.addEventListener("click",()=>{
+    current.textContent=Number(current.textContent)*-1;
+})
+
 //numbers
 numButtons.forEach(numButton=>{
     numButton.addEventListener("click",()=>{
