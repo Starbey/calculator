@@ -122,7 +122,9 @@ btnSubtract.addEventListener("click",()=>{
 
 //equals
 btnEquals.addEventListener("click",()=>{
-    newNum=Number(current.textContent);
-    current.textContent=operate(oldNum,op,newNum);
-    op="no op";
+    if (current.textContent!==""){
+        newNum=Number(current.textContent);
+        current.textContent=operate(oldNum,op,newNum);
+        op="no op";
+    }
 })
