@@ -1,7 +1,8 @@
 .center-screen {
     display: flex;
+    flex-direction:column;
     justify-content: center;
-    align-items: center;
+    align-items: center;;
     text-align: center;
     min-height: 100vh;
   }
@@ -48,7 +49,7 @@
 
 button{
     background-color:#c299ff;
-    /* border:none; */ /*change later*/
+    border:none;
     width:81px;
     height:60px;
     margin:8px;
@@ -63,4 +64,14 @@ button{
 
 #equals{
     width:182px;
+}
+
+.footer{
+    font-family:"Arial","sans-serif";
+    margin:100px;
+}
+
+a{
+    text-decoration:none;
+    color:#6600ff;
 }
