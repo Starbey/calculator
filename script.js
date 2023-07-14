@@ -41,7 +41,13 @@ function multiply(numOne,numTwo){
 }
 
 function divide(numOne,numTwo){
-    return numOne/numTwo;
+    if (numTwo==0){//prevents division by zero
+        alert("Nice try.");
+        return numTwo;
+    } 
+    else {
+        return numOne/numTwo;
+    }
 }
 
 //chooses an operation based on operator passed
@@ -70,13 +76,15 @@ function operate(numOne,operator,numTwo) {
 
 //event listeners
 //clear
-btnAC.addEventListener("click",()=>{
+function clear(){
     oldNum="";
     op="no op";
     newNum="";
     history.textContent="";
     current.textContent="0";
-})
+}
+
+btnAC.addEventListener("click",clear);
 
 //delete
 btnDel.addEventListener("click",()=>{
@@ -110,8 +118,8 @@ btnDecimal.addEventListener("click",()=>{
 //operators
 //helper function
 function operatorHelper(opSymbol,opType){
-    if (current.textContent!==""){//only works if user inputted something
-        newNum=Number(current.textContent);
+    if (current.textContent!==""){//only works if user inputted something     
+        newNum=Number(current.textContent);     
         oldNum=Math.round(1000*operate(oldNum,op,newNum))/1000;//rounds answer to 3 decimal places
         current.textContent="";
         history.textContent=`${oldNum} ${opSymbol}`;//updates history
@@ -131,7 +139,7 @@ btnMultiply.addEventListener("click",()=>{
 
 //divide
 btnDivide.addEventListener("click",()=>{
-    operatorHelper("/","divide");
+    operatorHelper("÷","divide");
 })
 
 //subtract
