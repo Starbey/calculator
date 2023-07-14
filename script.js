@@ -93,7 +93,7 @@ btnDecimal.addEventListener("click",()=>{
 function operatorHelper(opSymbol,opType){
     if (current.textContent!==""){//only works if user inputted something
         newNum=Number(current.textContent);
-        oldNum=operate(oldNum,op,newNum);
+        oldNum=Math.round(1000*operate(oldNum,op,newNum))/1000;//rounds answer to 3 decimal places
         current.textContent="";
         history.textContent=`${oldNum} ${opSymbol}`;//updates history
         op=opType;
@@ -124,7 +124,7 @@ btnSubtract.addEventListener("click",()=>{
 btnEquals.addEventListener("click",()=>{
     if (current.textContent!==""){
         newNum=Number(current.textContent);
-        current.textContent=operate(oldNum,op,newNum);
+        current.textContent=Math.round(1000*operate(oldNum,op,newNum))/1000;//rounds to 3 decimal places
         op="no op";
     }
 })
