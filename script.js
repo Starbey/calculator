@@ -7,6 +7,7 @@ const btnAC=document.getElementById("ac");
 const btnDel=document.getElementById("del");
 
 const btnPercent=document.getElementById("percent");
+
 const btnAdd=document.getElementById("add");
 const btnMultiply=document.getElementById("multiply");
 const btnDivide=document.getElementById("divide");
@@ -75,4 +76,11 @@ numButtons.forEach(numButton=>{
         input+=`${numButtons.indexOf(numButton)}`;
         current.textContent=input;
     })
+})
+
+//operators
+btnAdd.addEventListener("click",()=>{
+    input="";
+    current.textContent=input;
+    op="add";
 })
