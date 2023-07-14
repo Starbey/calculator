@@ -3,6 +3,8 @@ const history=document.querySelector(".history");
 const current=document.querySelector(".current");
 
 //buttons
+const buttons=document.querySelectorAll("button");//node list of all buttons
+
 const btnAC=document.getElementById("ac");
 const btnDel=document.getElementById("del");
 
@@ -139,4 +141,15 @@ btnEquals.addEventListener("click",()=>{
         current.textContent=Math.round(1000*operate(oldNum,op,newNum))/1000;//rounds to 3 decimal places
         op="no op";
     }
+})
+
+//button highlight effect
+buttons.forEach(button=>{
+    const originalColor=button.style.backgroundColor;
+    button.addEventListener("mouseover",()=>{
+        button.style.backgroundColor="#e0ccff";
+    })
+    button.addEventListener("mouseout",()=>{
+        button.style.backgroundColor=originalColor;
+    })
 })
