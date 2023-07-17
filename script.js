@@ -152,6 +152,7 @@ btnEquals.addEventListener("click",()=>{
     if (current.textContent!==""){
         newNum=Number(current.textContent);
         current.textContent=Math.round(1000*operate(oldNum,op,newNum))/1000;//rounds to 3 decimal places
+        history.textContent="";
         op="no op";
     }
 })
